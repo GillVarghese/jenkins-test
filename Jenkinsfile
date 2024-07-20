@@ -6,19 +6,27 @@ pipeline {
     
     
     stages {        
-        stage('Checkout') {
-            steps {
-                echo 'Checkout' 
-                checkout scm
-            }
-        }        
+             
         stage('Docker Build') {
             
             steps {
                 
                     echo 'Docker Build'
-                    sh "docker build -t gillvarghesesajan/sre-interview:0.0.1 ."
+                    sh "docker build -t gillvarghesesajan/jenkins-dind:0.0.1 ."
                     sh "docker images"
+                
+                
+            }
+            
+        }
+
+        stage('Docker Push') {
+            
+            steps {
+                
+                    echo 'Docker Push'
+                    sh "docker push gillvarghesesajan/jenkins-dind:0.0.1"
+        
                 
                 
             }
