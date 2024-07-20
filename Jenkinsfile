@@ -13,7 +13,7 @@ pipeline {
         stage('Docker Build') {
             
             steps {
-                sh "docker build ."
+                app = docker.build("gillvarghesesajan/jenkins-dind:0.0.1")
                 
             }
         }
