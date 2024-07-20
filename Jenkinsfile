@@ -15,11 +15,11 @@ pipeline {
         stage('Docker Build') {
             
             steps {
-                steps { 
+                
                     echo 'Docker Build'
                     sh "docker build -t gillvarghesesajan/sre-interview:0.0.1 ."
                     sh "docker images"
-                }
+                
                 
             }
             
