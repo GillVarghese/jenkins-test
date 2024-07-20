@@ -1,0 +1,8 @@
+[sk-kub4-cn1]
+sonar.avitech-ag.intra
+
+[all:vars]
+ansible_connection=ssh
+ansible_ssh_user=docker
+ansible_ssh_pass=avitech
+ansible_ssh_common_args="-o UserKnownHostsFile=/dev/null"
