@@ -40,7 +40,16 @@ pipeline {
             }
             
         }
-        
+        stage('Docker Run') {
+            
+            steps {
+                
+                    echo 'Docker Run'
+                    sh "docker run gillvarghesesajan/jenkins-dind:0.0.1"
+
+            }
+            
+        }
         
     }
 }
