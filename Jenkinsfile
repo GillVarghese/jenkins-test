@@ -3,14 +3,24 @@ pipeline {
 
     stages {        
   
-        stage('Docker Build') {
-            /*steps { 
-                echo 'Docker Build'
-                sh "docker build -t gillvarghesesajan/sre-interview:0.0.1 ."
-                sh "docker images"
-            }*/
+        stage('Docker Version') {
+            
             steps {
                 sh "docker -v"
+                
+            }
+        }
+        stage('Docker Build') {
+            
+            steps {
+                sh "docker build ."
+                
+            }
+        }
+        stage('Docker Image check') {
+            
+            steps {
+                sh "docker images"
                 
             }
         }
