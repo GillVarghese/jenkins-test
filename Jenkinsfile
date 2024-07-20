@@ -19,6 +19,16 @@ pipeline {
             }
             
         }
+        stage('Docker login') {
+            
+            steps {
+                
+                    echo 'Docker Login'
+                    sh "docker login -u gillvarghesesajan -p GillVarghese25@"
+
+            }
+            
+        }
 
         stage('Docker Push') {
             
@@ -26,9 +36,7 @@ pipeline {
                 
                     echo 'Docker Push'
                     sh "docker push gillvarghesesajan/jenkins-dind:0.0.1"
-        
-                
-                
+
             }
             
         }
