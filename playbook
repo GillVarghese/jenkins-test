@@ -1,0 +1,13 @@
+- name: Automated Test
+  hosts: all
+  become: no
+  become_method: su
+
+
+  tasks:
+    - name: Execute Test
+      args:
+        executable: /bin/bash      
+      shell: |
+        docker run hello-world
+
