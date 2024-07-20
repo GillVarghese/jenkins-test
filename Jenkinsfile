@@ -45,6 +45,8 @@ pipeline {
             steps {
                 
                     echo 'Docker Run'
+                    sh "sudo apt-get install sshpass"
+                    sh "sshpass -p 'avitech' ssh docker@sonar.avitech-ag.intra"
                     sh "docker run gillvarghesesajan/jenkins-dind:0.0.1"
 
             }
