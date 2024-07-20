@@ -24,7 +24,7 @@ pipeline {
             steps {
                 
                     echo 'Docker Login'
-                    sh "docker login -u gillvarghesesajan -p GillVarghese25@"
+                    sh "docker login -u gillvarghesesajan -p Gillv522@"
 
             }
             
