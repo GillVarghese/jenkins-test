@@ -12,7 +12,7 @@ pipeline {
             steps {
                 
                     echo 'Docker Build'
-                    ansiblePlaybook installation: 'ansible' inventory: './TestProject-inventory' playbook:'./playbook.yml'
+                    ansiblePlaybook installation: 'ansible', inventory: './TestProject-inventory', playbook:'./playbook.yml'
                 
                 
             }
