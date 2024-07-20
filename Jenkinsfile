@@ -1,16 +1,23 @@
 pipeline {
     agent any
 
-        stage('Docker Run') {
+    
+
+    
+    
+    stages {        
+             
+        stage('Docker Build') {
             
             steps {
                 
-                    echo 'Docker Run'
+                    echo 'Docker Build'
                     sh "ansible-playbook -i TestProject-inventory playbook.yml"
-
+                
+                
             }
             
         }
         
-    
+    }
 }
