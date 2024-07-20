@@ -15,8 +15,10 @@ pipeline {
         stage('Docker Build') {
             
             steps {
-                script {
-                    app = docker.build("gillvarghesesajan/sre-interview:0.0.1")
+                steps { 
+                    echo 'Docker Build'
+                    sh "docker build -t gillvarghesesajan/sre-interview:0.0.1 ."
+                    sh "docker images"
                 }
                 
             }
