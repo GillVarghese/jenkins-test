@@ -20,7 +20,7 @@ pipeline {
                     remote.user=env.SSH_CRED_USR
                     remote.password=env.SSH_CRED_PSW
                 }
-                sshCommand(remote: remote, command: "ls -ltr /home/docker/")
+                
             }
         }         
         
