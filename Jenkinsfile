@@ -18,7 +18,7 @@ pipeline {
                     remote.user='docker'
                     remote.password='avitech'
                 }
-                sshCommand(remote: remote, command:"ls -lrt /home/docker")
+                sshCommand(remote: remote, command:"docker ps -a")
             }
         }         
         
