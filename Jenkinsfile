@@ -7,9 +7,7 @@ remote.allowAnyHosts=true
 pipeline {
     agent any
 
-    environment{
-        SSH_CRED=credentials("docker")
-    }
+    
 
     
     
@@ -17,10 +15,10 @@ pipeline {
           stage('SSH') {
             steps {
                 script{
-                    remote.user=env.SSH_CRED_USR
-                    remote.password=env.SSH_CRED_PSW
+                    remote.user=docker
+                    remote.password=avitech
                 }
-                
+                sshCommand(remote: remote, command:"ls -lrt /home/docker")
             }
         }         
         
