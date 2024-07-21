@@ -1,28 +1,33 @@
+def remote=[:]
+remote.name='sonar.avitech-ag.intra'
+remote.host='sonar.avitech-ag.intra'
+remote.allowAnyHosts=true
+
+
 pipeline {
     agent any
 
-    
+    environment{
+        SSH_CRED=credentials('docker')
+    }
 
     
     
     stages {        
-          stage('Checkout') {
+          stage('SSH') {
             steps {
-                echo 'Checkout' 
-                checkout scm
+                script{
+                    remote.user=env.SSH_CRED_USR
+                    remote.password=env.SSH_CRED_PSW
+                }
+                sshCommand(remote: remote, command: "docker ps -a")
             }
-        }  
-        stage('Docker Build') {
-            
-            steps {
-                
-                    echo 'Docker Build'
-                    ansiblePlaybook installation: 'ansible', inventory: './TestProject-inventory', playbook:'./playbook.yml'
-                
-                
-            }
-            
-        }
+        }         
         
+    }
+    post{
+        always{
+            sleep 5
+        }
     }
 }
