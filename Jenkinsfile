@@ -8,7 +8,7 @@ pipeline {
     agent any
 
     environment{
-        SSH_CRED=credentials('docker')
+        SSH_CRED=credentials("docker")
     }
 
     
